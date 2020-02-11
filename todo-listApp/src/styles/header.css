@@ -1,0 +1,19 @@
+.header {
+  /* font-family: 'Sriracha', cursive;
+  font-size: 35px; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 25px 0;
+  /* left: 50%;
+  transform: translate(-50%, 0); */
+  z-index: 1000;
+  width: 100%;
+  background-color: #474747;
+  opacity: 0.8;
+  transition: opacity 0.2s linear;
+}
+
+.header:hover {
+  opacity: 1;
+}

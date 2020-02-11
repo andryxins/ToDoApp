@@ -1,0 +1,15 @@
+<div class="create-item">
+    <p class="create-item__title">Enter your task</p>
+    <input class="create-item__input-title" type="text" value="" placeholder="put your title...">
+    <textarea class="create-item__input-description" type="text" value="" placeholder="put your description..."
+        maxlength="150"></textarea>
+    <div class="create-item__priority-group">
+        <input type="radio" name="priority" id="priorityLOW" value="low" checked>
+        <label for="priorityLOW">low</label>
+        <input type="radio" name="priority" id="priorityNORMAL" value="normal">
+        <label for="priorityNORMAL">normal</label>
+        <input type="radio" name="priority" id="priorityHIGH" value="high">
+        <label for="priorityHIGH">high</label>
+    </div>
+    <button class="create-item__button" data-action="createTask">add to list</button>
+</div>

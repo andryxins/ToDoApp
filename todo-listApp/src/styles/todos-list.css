@@ -1,0 +1,93 @@
+.todo-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+  padding-top: 120px;
+  list-style: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+.todo-list__item {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  padding: 5px;
+  width: 300px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px black;
+  margin: 0px 4px 25px 4px;
+  word-wrap: break-word;
+  opacity: 0.8;
+  transition: all 0.3s linear;
+}
+
+.item__title {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.item__desc {
+  margin: 0;
+  padding: 0;
+}
+
+.item__priority {
+  margin: 0 -5px;
+  padding: 0 10px;
+  text-align: right;
+  font-family: 'Sriracha', cursive;
+  margin-bottom: 10px;
+}
+
+.item__controls {
+  display: none;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 15px;
+  width: 290px;
+}
+
+.todo-list__item:hover {
+  box-shadow: 0px 0px 20px black;
+  opacity: 1;
+}
+
+.todo-list__item:hover .item__controls {
+  display: flex;
+}
+
+.controls__complete-btn,
+.controls__delete-btn {
+  font-family: 'Sriracha', cursive;
+  cursor: pointer;
+  opacity: 0.8;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.2s linear;
+}
+
+.controls__complete-btn:hover,
+.controls__delete-btn:hover {
+  opacity: 1;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px black;
+}
+
+.priority-low {
+  background-color: #f26b38;
+  color: antiquewhite;
+}
+
+.priority-normal {
+  background-color: #cc527a;
+  color: antiquewhite;
+}
+
+.priority-high {
+  background-color: #e8175d;
+  color: antiquewhite;
+}

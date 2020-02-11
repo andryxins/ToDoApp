@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto|Sriracha&display=swap&subset=cyrillic"
+      rel="stylesheet"
+    />
+    <title>Webpack Starter Kit</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="constrols">
+          <form class="controls__form" action="sort-list" id="searchForm">
+            <input
+              class="form__serch-title js-searchByTitle"
+              type="text"
+              placeholder="search by title"
+            />
+            <select
+              class="form__sort-status js-sortByStatus"
+              name="searchByStatus"
+              id="searchByStatus"
+            >
+              <option value="all">all</option>
+              <option value="open">open</option>
+              <option value="done">done</option>
+            </select>
+            <select
+              class="form__sort-priority js-sortByPriority"
+              name="searchByPriority"
+              id="searchByPriority"
+            >
+              <option value="all">all</option>
+              <option value="high">high</option>
+              <option value="normal">normal</option>
+              <option value="low">low</option>
+            </select>
+          </form>
+          <button class="createTodoItem js-createBtn">create</button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <ul class="todo-list js-todo-list"></ul>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-info">
+          <p class="footer__page-developer">Khairetdinov Andrii</p>
+          <a class="footer__mail-developer" href="mailto: andryxins@gmail.com"
+            >andryxins@gmail.com</a
+          >
+          <p class="footer__country-developer">Ukraine</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
