@@ -5,6 +5,7 @@
   margin: 0 auto;
   padding: 0;
   padding-top: 120px;
+  padding-bottom: 30px;
   list-style: none;
   font-family: 'Roboto', sans-serif;
 }
@@ -90,4 +91,15 @@
 .priority-high {
   background-color: #e8175d;
   color: antiquewhite;
+}
+
+.status-done {
+  background-color: rgb(153, 236, 27);
+  color: black;
+}
+
+@media (max-width: 651px) {
+  .item__controls {
+    width: 260px;
+  }
 }

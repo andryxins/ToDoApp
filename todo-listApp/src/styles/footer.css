@@ -28,3 +28,10 @@
 .footer:hover {
   opacity: 1;
 }
+
+@media (max-width: 651px) {
+  .footer__mail-developer,
+  .footer__country-developer {
+    display: none;
+  }
+}

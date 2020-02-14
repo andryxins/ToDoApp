@@ -6,7 +6,10 @@ const refs = {
 
 const renderingActions = {
   createListMarkUp(arrOfToDos) {
-    return arrOfToDos.map(item => toDoListItem(item)).join('');
+    return [...arrOfToDos]
+      .reverse()
+      .map(item => toDoListItem(item))
+      .join('');
   },
   updatingToDoList(arrOfToDos) {
     const markUp = this.createListMarkUp(arrOfToDos);

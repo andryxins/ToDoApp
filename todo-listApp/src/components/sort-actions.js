@@ -43,6 +43,8 @@ const sortActions = {
   },
 };
 refs.toDosList.addEventListener('click', e => {
-  if (e.target.dataset.id) updatingActions.deleteFromTasks(e.target.dataset.id);
+  if (e.target.dataset.action) {
+    updatingActions[e.target.dataset.action](e.target.parentNode.dataset.id);
+  }
 });
 refs.form.addEventListener('input', sortActions.sort.bind(sortActions));

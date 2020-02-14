@@ -1,9 +1,9 @@
 <li class="todo-list__item" data-id="{{id}}">
-    <div class="item__priority priority-{{priority}}">{{priority}}</div>
+    <div class="item__priority priority-{{priority}} status-{{status}}">{{priority}}</div>
     <h3 class="item__title">{{title}}</h3>
     <p class="item__desc">{{description}}</p>
-    <div class="item__controls">
-        <button class="controls__complete-btn" data-action="completeTask">completed</button>
-        <button class="controls__delete-btn" data-id="{{id}}">delete</button>
+    <div class="item__controls" data-id="{{id}}">
+        <button class="controls__complete-btn" data-action="updateStatus">completed</button>
+        <button class="controls__delete-btn" data-action="deleteFromTasks">delete</button>
     </div>
 </li>

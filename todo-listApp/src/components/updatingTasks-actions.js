@@ -14,6 +14,13 @@ const updatingActions = {
     this.updateLocalStorage();
     renderingActions.updatingToDoList(arrOfTasks);
   },
+  updateStatus(id) {
+    arrOfTasks.forEach(item =>
+      item.id === id ? (item.status = 'done') : item,
+    );
+    this.updateLocalStorage();
+    renderingActions.updatingToDoList(arrOfTasks);
+  },
   updateLocalStorage() {
     try {
       localStorage.setItem('arrOfTasks', JSON.stringify(arrOfTasks));
