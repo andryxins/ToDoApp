@@ -1,4 +1,5 @@
 import toDoListItem from '../tamplates/todoListItem.hbs';
+import sortActions from './sort-actions';
 
 const refs = {
   toDosList: document.querySelector('.js-todo-list'),
@@ -11,8 +12,8 @@ const renderingActions = {
       .map(item => toDoListItem(item))
       .join('');
   },
-  updatingToDoList(arrOfToDos) {
-    const markUp = this.createListMarkUp(arrOfToDos);
+  updatingToDoList() {
+    const markUp = this.createListMarkUp(sortActions.sort());
     refs.toDosList.innerHTML = '';
     refs.toDosList.insertAdjacentHTML('beforeend', markUp);
   },

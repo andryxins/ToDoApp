@@ -29,7 +29,7 @@
   opacity: 1;
 }
 
-@media (max-width: 651px) {
+@media (max-width: 1022px) {
   .footer__mail-developer,
   .footer__country-developer {
     display: none;

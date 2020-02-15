@@ -31,7 +31,6 @@ const updatingActions = {
   getLocalStorageItems() {
     try {
       const localToDos = localStorage.getItem('arrOfTasks');
-      console.log(JSON.parse(localToDos));
       arrOfTasks.push(...JSON.parse(localToDos));
     } catch (e) {
       console.log(e);

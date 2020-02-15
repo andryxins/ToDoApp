@@ -1,8 +1,6 @@
 .constrols {
   display: flex;
   flex-direction: column;
-  /* padding-top: 25px;
-  padding-bottom: 25px; */
 }
 
 .controls__form {
@@ -20,7 +18,7 @@
 
 .form__sort-status,
 .form__sort-priority {
-  width: 50px;
+  width: 70px;
   height: 25px;
   font-size: 15px;
 }

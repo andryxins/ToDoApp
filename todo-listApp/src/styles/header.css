@@ -17,3 +17,10 @@
 .header:hover {
   opacity: 1;
 }
+
+@media (max-width: 1022px) {
+  .header {
+    padding-top: 15px;
+    padding-bottom: 5px;
+  }
+}

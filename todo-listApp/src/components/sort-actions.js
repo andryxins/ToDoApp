@@ -24,10 +24,8 @@ const sortActions = {
       ? arr.filter(item => item.priority === priority)
       : arr;
   },
-  sort(e) {
-    const searchValues = Array.from(e.target.form.elements).map(
-      item => item.value,
-    );
+  sort() {
+    const searchValues = Array.from(refs.form.elements).map(item => item.value);
     // переделать этот пиздец!!!!
     const sortedByInputText = this.searchByTitle(tasksArr, searchValues[0]);
     const sortedByStatus = this.sortByStatus(
@@ -38,8 +36,7 @@ const sortActions = {
       sortedByStatus,
       searchValues[2],
     );
-
-    renderingActions.updatingToDoList(sortedByPriority);
+    return sortedByPriority;
   },
 };
 refs.toDosList.addEventListener('click', e => {
@@ -47,4 +44,6 @@ refs.toDosList.addEventListener('click', e => {
     updatingActions[e.target.dataset.action](e.target.parentNode.dataset.id);
   }
 });
-refs.form.addEventListener('input', sortActions.sort.bind(sortActions));
+refs.form.addEventListener('input', e => renderingActions.updatingToDoList());
+
+export default sortActions;

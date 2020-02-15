@@ -33,7 +33,6 @@ const createActions = {
       id: Date.now() + '',
     };
     updatingActions.addToTasks(obj);
-    console.log(tasksArr);
     renderingActions.updatingToDoList(tasksArr);
   },
 };

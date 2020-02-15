@@ -64,6 +64,7 @@
 .controls__complete-btn,
 .controls__delete-btn {
   font-family: 'Sriracha', cursive;
+  background-color: aliceblue;
   cursor: pointer;
   opacity: 0.8;
   border: none;
@@ -101,5 +102,11 @@
 @media (max-width: 651px) {
   .item__controls {
     width: 260px;
+  }
+}
+
+@media (max-width: 1022px) {
+  .todo-list {
+    padding-top: 90px;
   }
 }
