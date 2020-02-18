@@ -62,7 +62,8 @@
 }
 
 .controls__complete-btn,
-.controls__delete-btn {
+.controls__delete-btn,
+.controls__edit-btn {
   font-family: 'Sriracha', cursive;
   background-color: aliceblue;
   cursor: pointer;
@@ -73,7 +74,8 @@
 }
 
 .controls__complete-btn:hover,
-.controls__delete-btn:hover {
+.controls__delete-btn:hover,
+.controls__edit-btn:hover {
   opacity: 1;
   border-radius: 5px;
   box-shadow: 0px 0px 10px black;

@@ -1,5 +1,7 @@
 import arrOfTasks from './tasks';
 import { renderingActions } from './rendering-actions';
+import * as basicLightbox from 'basiclightbox';
+import editToDoItemTamlate from '../tamplates/editToDoItem-tamlate.hbs';
 
 const updatingActions = {
   addToTasks(elem) {
@@ -20,6 +22,38 @@ const updatingActions = {
     );
     this.updateLocalStorage();
     renderingActions.updatingToDoList(arrOfTasks);
+  },
+  editTasks(id) {
+    const curentIdx = arrOfTasks.findIndex(item => item.id === id);
+    const lightBox = basicLightbox.create(
+      editToDoItemTamlate(arrOfTasks[curentIdx]),
+    );
+    lightBox.show();
+    document
+      .querySelectorAll('input[name=priority]')
+      .forEach(elem =>
+        elem.value === arrOfTasks[curentIdx].priority
+          ? elem.setAttribute('checked', 'checked')
+          : elem,
+      );
+    document
+      .querySelector('button[data-action="editTaskBtn"]')
+      .addEventListener('click', e => {
+        const editObj = {
+          title: document.querySelector('.create-item__input-title').value,
+          description: document.querySelector('.create-item__input-description')
+            .value,
+          priority: Array.from(
+            document.querySelectorAll('input[name="priority"]'),
+          ).find(item => item.checked).value,
+          status: 'open',
+          id: id,
+        };
+        arrOfTasks.splice(curentIdx, 1, editObj);
+        this.updateLocalStorage();
+        renderingActions.updatingToDoList(arrOfTasks);
+        lightBox.close();
+      });
   },
   updateLocalStorage() {
     try {
