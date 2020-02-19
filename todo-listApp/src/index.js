@@ -7,6 +7,6 @@ import './styles/footer.css';
 import 'basiclightbox/dist/basicLightbox.min.css';
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
+import './components/dragNDrop-actions.js';
 import './components/createItem-actions';
 import './components/sort-actions.js';
