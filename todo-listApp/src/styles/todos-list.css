@@ -23,6 +23,7 @@
   word-wrap: break-word;
   opacity: 0.8;
   transition: all 0.3s linear;
+  background-color: #b8b5b5;
 }
 
 .item__title {

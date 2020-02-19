@@ -55,6 +55,18 @@ const updatingActions = {
         lightBox.close();
       });
   },
+  updateSortOrder({ oldIndex, newIndex }) {
+    const oldArr = [...arrOfTasks].reverse();
+    const newArr = [
+      ...oldArr.slice(0, newIndex),
+      ...oldArr.slice(oldIndex, oldIndex + 1),
+      ...oldArr.slice(newIndex),
+    ]
+      .filter((item, idx, arr) => arr.indexOf(item) === idx)
+      .reverse();
+    arrOfTasks.splice(0, arrOfTasks.length, ...newArr);
+    this.updateLocalStorage();
+  },
   updateLocalStorage() {
     try {
       localStorage.setItem('arrOfTasks', JSON.stringify(arrOfTasks));

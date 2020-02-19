@@ -9,7 +9,7 @@ const renderingActions = {
   createListMarkUp(arrOfToDos) {
     return [...arrOfToDos]
       .reverse()
-      .map(item => toDoListItem(item))
+      .map((item, idx) => toDoListItem({ positionNumber: idx, ...item }))
       .join('');
   },
   updatingToDoList() {
