@@ -103,18 +103,6 @@
   color: black;
 }
 
-@media (max-width: 651px) {
-  .item__controls {
-    width: 260px;
-  }
-}
-
-@media (max-width: 1022px) {
-  .todo-list {
-    padding-top: 90px;
-  }
-}
-
 .draggable-source--is-dragging {
   filter: blur(7px);
   cursor: grabbing !important;
@@ -125,4 +113,20 @@
 
 .draggable-container--is-dragging {
   cursor: grabbing;
+}
+
+@media (max-width: 651px) {
+  .item__controls {
+    width: 260px;
+  }
+
+  .draggable-mirror {
+    width: 272px;
+  }
+}
+
+@media (max-width: 1022px) {
+  .todo-list {
+    padding-top: 90px;
+  }
 }
