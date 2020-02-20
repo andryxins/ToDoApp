@@ -3,6 +3,11 @@ import { renderingActions } from './rendering-actions';
 import * as basicLightbox from 'basiclightbox';
 import editToDoItemTamlate from '../tamplates/editToDoItem-tamlate.hbs';
 
+// FOR THE EXPAMPLE OF UPDATING TASKS AFTER DRAGNDROP
+// const refs = {
+//   toDoList: document.querySelector('.js-todo-list'),
+// };
+
 const updatingActions = {
   addToTasks(elem) {
     arrOfTasks.push(elem);
@@ -61,12 +66,27 @@ const updatingActions = {
       ...oldArr.slice(0, newIndex),
       ...oldArr.slice(oldIndex, oldIndex + 1),
       ...oldArr.slice(newIndex),
-    ]
-      .filter((item, idx, arr) => arr.indexOf(item) === idx)
-      .reverse();
-    arrOfTasks.splice(0, arrOfTasks.length, ...newArr);
+    ];
+    oldIndex < newIndex
+      ? newArr.splice(oldIndex, 1)
+      : newArr.splice(oldIndex + 1, 1);
+    arrOfTasks.splice(0, arrOfTasks.length, ...newArr.reverse());
     this.updateLocalStorage();
   },
+  //
+  // ONE OF THE EXAMPLES OF SORTING TASKS AFTER DRAGNDROP
+  //
+  // updateSortOrder({ oldIndex, newIndex }) {
+  //   const newArr = Array.from(refs.toDoList.children)
+  //     .map(item => item.dataset.id)
+  //     .map(item => arrOfTasks.find(oldItem => oldItem.id === item));
+
+  //   oldIndex < newIndex
+  //     ? newArr.splice(oldIndex, 1)
+  //     : newArr.splice(oldIndex + 1, 1);
+  //   newArr.pop();
+  //   console.log(newArr);
+  // },
   updateLocalStorage() {
     try {
       localStorage.setItem('arrOfTasks', JSON.stringify(arrOfTasks));
