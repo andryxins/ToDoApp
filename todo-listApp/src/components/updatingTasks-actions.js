@@ -3,10 +3,10 @@ import { renderingActions } from './rendering-actions';
 import * as basicLightbox from 'basiclightbox';
 import editToDoItemTamlate from '../tamplates/editToDoItem-tamlate.hbs';
 
-// FOR THE EXPAMPLE OF UPDATING TASKS AFTER DRAGNDROP
-// const refs = {
-//   toDoList: document.querySelector('.js-todo-list'),
-// };
+// FOR THE EXPAMPLE OF UPDATING TASKS AFTER DRAGNDROP WITH DUBLE LOOP
+const refs = {
+  toDoList: document.querySelector('.js-todo-list'),
+};
 
 const updatingActions = {
   addToTasks(elem) {
@@ -60,33 +60,37 @@ const updatingActions = {
         lightBox.close();
       });
   },
-  updateSortOrder({ oldIndex, newIndex }) {
-    const oldArr = [...arrOfTasks].reverse();
-    const newArr = [
-      ...oldArr.slice(0, newIndex),
-      ...oldArr.slice(oldIndex, oldIndex + 1),
-      ...oldArr.slice(newIndex),
-    ];
-    oldIndex < newIndex
-      ? newArr.splice(oldIndex, 1)
-      : newArr.splice(oldIndex + 1, 1);
-    arrOfTasks.splice(0, arrOfTasks.length, ...newArr.reverse());
-    this.updateLocalStorage();
-  },
   //
-  // ONE OF THE EXAMPLES OF SORTING TASKS AFTER DRAGNDROP
+  // SHOULD FIX THIS
   //
   // updateSortOrder({ oldIndex, newIndex }) {
-  //   const newArr = Array.from(refs.toDoList.children)
-  //     .map(item => item.dataset.id)
-  //     .map(item => arrOfTasks.find(oldItem => oldItem.id === item));
-
+  //   const oldArr = [...arrOfTasks].reverse();
+  //   const newArr = [
+  //     ...oldArr.slice(0, newIndex),
+  //     ...oldArr.slice(oldIndex, oldIndex + 1),
+  //     ...oldArr.slice(newIndex),
+  //   ];
   //   oldIndex < newIndex
   //     ? newArr.splice(oldIndex, 1)
   //     : newArr.splice(oldIndex + 1, 1);
-  //   newArr.pop();
-  //   console.log(newArr);
+  //   arrOfTasks.splice(0, arrOfTasks.length, ...newArr.reverse());
+  //   this.updateLocalStorage();
   // },
+  //
+  // ONE OF THE EXAMPLES OF SORTING TASKS AFTER DRAGNDROP WITH DOUBLE LOOP
+  //
+  updateSortOrder({ oldIndex, newIndex }) {
+    const newArr = Array.from(refs.toDoList.children)
+      .map(item => item.dataset.id)
+      .map(item => arrOfTasks.find(oldItem => oldItem.id === item));
+
+    oldIndex < newIndex
+      ? newArr.splice(oldIndex, 1)
+      : newArr.splice(oldIndex + 1, 1);
+    newArr.pop();
+    arrOfTasks.splice(0, arrOfTasks.length, ...newArr.reverse());
+    this.updateLocalStorage();
+  },
   updateLocalStorage() {
     try {
       localStorage.setItem('arrOfTasks', JSON.stringify(arrOfTasks));
