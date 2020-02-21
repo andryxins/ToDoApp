@@ -6,6 +6,4 @@ const sortable = new Sortable(document.querySelector('.js-todo-list'), {
   delay: 200,
 });
 
-sortable.on('sortable:stop', e => {
-  updatingActions.updateSortOrder(e);
-});
+sortable.on('sortable:stop', e => updatingActions.updateSortOrder(e));

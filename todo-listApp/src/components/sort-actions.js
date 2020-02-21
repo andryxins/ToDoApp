@@ -39,11 +39,17 @@ const sortActions = {
     return sortedByPriority;
   },
 };
-refs.toDosList.addEventListener('click', e => {
-  if (e.target.dataset.action) {
-    updatingActions[e.target.dataset.action](e.target.parentNode.dataset.id);
-  }
-});
+// refs.toDosList.addEventListener('click', e => {
+//   if (e.target.dataset.action) {
+//     updatingActions[e.target.dataset.action](e.target.parentNode.dataset.id);
+//   }
+// });
+refs.toDosList.addEventListener(
+  'click',
+  e =>
+    e.target.dataset.action &&
+    updatingActions[e.target.dataset.action](e.target.parentNode.dataset.id),
+);
 refs.form.addEventListener('input', e => renderingActions.updatingToDoList());
 
 export default sortActions;

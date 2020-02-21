@@ -16,7 +16,8 @@ const createActions = {
     const submitBtn = document.querySelector(
       'button[data-action="createTask"]',
     );
-    submitBtn.addEventListener('click', e => {
+    submitBtn.addEventListener('click', () => {
+      if (!document.querySelector('.create-item__input-title').value) return;
       this.createObjectOfItem();
       lightBox.close();
     });

@@ -44,6 +44,7 @@ const updatingActions = {
     document
       .querySelector('button[data-action="editTaskBtn"]')
       .addEventListener('click', e => {
+        if (!document.querySelector('.create-item__input-title').value) return;
         const editObj = {
           title: document.querySelector('.create-item__input-title').value,
           description: document.querySelector('.create-item__input-description')
@@ -80,7 +81,9 @@ const updatingActions = {
   // ONE OF THE EXAMPLES OF SORTING TASKS AFTER DRAGNDROP WITH DOUBLE LOOP
   //
   updateSortOrder({ oldIndex, newIndex }) {
-    const newArr = Array.from(refs.toDoList.children)
+    const ArrFromCurrentList = Array.from(refs.toDoList.children);
+    if (ArrFromCurrentList.length - 2 < arrOfTasks.length) return;
+    const newArr = [...ArrFromCurrentList]
       .map(item => item.dataset.id)
       .map(item => arrOfTasks.find(oldItem => oldItem.id === item));
 
