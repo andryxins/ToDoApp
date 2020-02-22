@@ -2,6 +2,7 @@ import * as basicLightbox from 'basiclightbox';
 import createToDoItemTamplate from '../tamplates/createToDoItem-tamplate.hbs';
 import { renderingActions } from './rendering-actions';
 import { updatingActions } from './updatingTasks-actions';
+import Toastify from 'toastify-js';
 
 import tasksArr from './tasks';
 
@@ -10,14 +11,21 @@ const refs = {
 };
 
 const createActions = {
-  createItem(e) {
+  createItem() {
     const lightBox = basicLightbox.create(createToDoItemTamplate());
     lightBox.show();
     const submitBtn = document.querySelector(
       'button[data-action="createTask"]',
     );
     submitBtn.addEventListener('click', () => {
-      if (!document.querySelector('.create-item__input-title').value) return;
+      if (!document.querySelector('.create-item__input-title').value) {
+        Toastify({
+          text: "Title can't be empty!",
+          backgroundColor: 'linear-gradient(to right, #00b09b, #96c93d)',
+          className: 'info',
+        }).showToast();
+        return;
+      }
       this.createObjectOfItem();
       lightBox.close();
     });

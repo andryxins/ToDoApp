@@ -5,6 +5,7 @@ import './styles/todos-list.css';
 import './styles/create-popup.css';
 import './styles/footer.css';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import 'toastify-js/src/toastify.css';
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 import './components/createItem-actions';

@@ -2,6 +2,7 @@ import arrOfTasks from './tasks';
 import { renderingActions } from './rendering-actions';
 import * as basicLightbox from 'basiclightbox';
 import editToDoItemTamlate from '../tamplates/editToDoItem-tamlate.hbs';
+import Toastify from 'toastify-js';
 
 const updatingActions = {
   addToTasks(elem) {
@@ -39,7 +40,15 @@ const updatingActions = {
     document
       .querySelector('button[data-action="editTaskBtn"]')
       .addEventListener('click', e => {
-        if (!document.querySelector('.create-item__input-title').value) return;
+        console.dir(e);
+        if (!document.querySelector('.create-item__input-title').value) {
+          Toastify({
+            text: "Title can't be empty!",
+            backgroundColor: 'linear-gradient(to right, #00b09b, #96c93d)',
+            className: 'info',
+          }).showToast();
+          return;
+        }
         const editObj = {
           title: document.querySelector('.create-item__input-title').value,
           description: document.querySelector('.create-item__input-description')
