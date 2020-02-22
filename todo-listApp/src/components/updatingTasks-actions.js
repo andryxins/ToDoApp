@@ -40,7 +40,6 @@ const updatingActions = {
     document
       .querySelector('button[data-action="editTaskBtn"]')
       .addEventListener('click', e => {
-        console.dir(e);
         if (!document.querySelector('.create-item__input-title').value) {
           Toastify({
             text: "Title can't be empty!",
