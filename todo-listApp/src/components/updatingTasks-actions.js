@@ -3,11 +3,6 @@ import { renderingActions } from './rendering-actions';
 import * as basicLightbox from 'basiclightbox';
 import editToDoItemTamlate from '../tamplates/editToDoItem-tamlate.hbs';
 
-// FOR THE EXPAMPLE OF UPDATING TASKS AFTER DRAGNDROP WITH DUBLE LOOP
-const refs = {
-  toDoList: document.querySelector('.js-todo-list'),
-};
-
 const updatingActions = {
   addToTasks(elem) {
     arrOfTasks.push(elem);
@@ -61,36 +56,11 @@ const updatingActions = {
         lightBox.close();
       });
   },
-  //
-  // SHOULD FIX THIS
-  //
-  // updateSortOrder({ oldIndex, newIndex }) {
-  //   const oldArr = [...arrOfTasks].reverse();
-  //   const newArr = [
-  //     ...oldArr.slice(0, newIndex),
-  //     ...oldArr.slice(oldIndex, oldIndex + 1),
-  //     ...oldArr.slice(newIndex),
-  //   ];
-  //   oldIndex < newIndex
-  //     ? newArr.splice(oldIndex, 1)
-  //     : newArr.splice(oldIndex + 1, 1);
-  //   arrOfTasks.splice(0, arrOfTasks.length, ...newArr.reverse());
-  //   this.updateLocalStorage();
-  // },
-  //
-  // ONE OF THE EXAMPLES OF SORTING TASKS AFTER DRAGNDROP WITH DOUBLE LOOP
-  //
-  updateSortOrder({ oldIndex, newIndex }) {
-    const ArrFromCurrentList = Array.from(refs.toDoList.children);
-    if (ArrFromCurrentList.length - 2 < arrOfTasks.length) return;
-    const newArr = [...ArrFromCurrentList]
-      .map(item => item.dataset.id)
-      .map(item => arrOfTasks.find(oldItem => oldItem.id === item));
-
-    oldIndex < newIndex
-      ? newArr.splice(oldIndex, 1)
-      : newArr.splice(oldIndex + 1, 1);
-    newArr.pop();
+  updateSortOrder({ oldIndex, newIndex, oldContainer }) {
+    if (oldContainer.children.length - 2 < arrOfTasks.length) return;
+    const newArr = [...arrOfTasks].reverse();
+    const movedItems = newArr.splice(oldIndex, 1);
+    newArr.splice(newIndex, 0, ...movedItems);
     arrOfTasks.splice(0, arrOfTasks.length, ...newArr.reverse());
     this.updateLocalStorage();
   },
