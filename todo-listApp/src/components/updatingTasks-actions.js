@@ -1,5 +1,6 @@
 import arrOfTasks from './tasks';
 import { renderingActions } from './rendering-actions';
+import createActions from './createItem-actions';
 import * as basicLightbox from 'basiclightbox';
 import editToDoItemTamlate from '../tamplates/editToDoItem-tamlate.hbs';
 import Toastify from 'toastify-js';
@@ -39,7 +40,7 @@ const updatingActions = {
       );
     document
       .querySelector('button[data-action="editTaskBtn"]')
-      .addEventListener('click', e => {
+      .addEventListener('click', () => {
         if (!document.querySelector('.create-item__input-title').value) {
           Toastify({
             text: "Title can't be empty!",
@@ -48,17 +49,11 @@ const updatingActions = {
           }).showToast();
           return;
         }
-        const editObj = {
-          title: document.querySelector('.create-item__input-title').value,
-          description: document.querySelector('.create-item__input-description')
-            .value,
-          priority: Array.from(
-            document.querySelectorAll('input[name="priority"]'),
-          ).find(item => item.checked).value,
-          status: 'open',
-          id: id,
-        };
-        arrOfTasks.splice(curentIdx, 1, editObj);
+        arrOfTasks.splice(
+          curentIdx,
+          1,
+          createActions.createAndEditObjectOfItem(id),
+        );
         this.updateLocalStorage();
         renderingActions.updatingToDoList(arrOfTasks);
         lightBox.close();

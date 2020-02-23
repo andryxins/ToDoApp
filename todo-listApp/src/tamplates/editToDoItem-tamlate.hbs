@@ -1,8 +1,8 @@
 <div class="create-item">
     <p class="create-item__title">Edit your task</p>
-    <input class="create-item__input-title" type="text" value="{{title}}" placeholder="put your title...">
-    <textarea class="create-item__input-description" type="text" placeholder="put your description..."
-        maxlength="150">{{description}}</textarea>
+    <input class="create-item__input-title" name="title" type="text" value="{{title}}" placeholder="put your title...">
+    <textarea class="create-item__input-description" name="description" type="text"
+        placeholder="put your description..." maxlength="150">{{description}}</textarea>
     <div class="create-item__priority-group">
         <input type="radio" name="priority" id="priorityLOW" value="low">
         <label for="priorityLOW">low</label>
@@ -11,5 +11,5 @@
         <input type="radio" name="priority" id="priorityHIGH" value="high">
         <label for="priorityHIGH">high</label>
     </div>
-    <button class="create-item__button" data-action="editTaskBtn">EDIT</button>
+    <button type="submit" class="create-item__button" data-action="editTaskBtn">EDIT</button>
 </div>

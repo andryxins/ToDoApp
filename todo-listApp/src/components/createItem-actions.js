@@ -26,23 +26,22 @@ const createActions = {
         }).showToast();
         return;
       }
-      this.createObjectOfItem();
+      updatingActions.addToTasks(this.createAndEditObjectOfItem());
+      renderingActions.updatingToDoList(tasksArr);
       lightBox.close();
     });
   },
-  createObjectOfItem() {
+  createAndEditObjectOfItem(id) {
     const obj = {
-      title: document.querySelector('.create-item__input-title').value,
-      description: document.querySelector('.create-item__input-description')
-        .value,
+      title: document.querySelector('input[name="title"]').value,
+      description: document.querySelector('textarea[name="description"]').value,
       priority: Array.from(
         document.querySelectorAll('input[name="priority"]'),
       ).find(item => item.checked).value,
       status: 'open',
-      id: Date.now() + '',
+      id: id || Date.now() + '',
     };
-    updatingActions.addToTasks(obj);
-    renderingActions.updatingToDoList(tasksArr);
+    return obj;
   },
 };
 
@@ -50,3 +49,5 @@ refs.createBtn.addEventListener(
   'click',
   createActions.createItem.bind(createActions),
 );
+
+export default createActions;
