@@ -1,11 +1,13 @@
 # MY First App (ToDo Application)
 
+You can try it [here](https://andryxins.github.io/ToDoApp/)
+
 ---
 
 ## What is it
 
-Small single page app, which can save todo items, you can change items order by
-grabbing it. Saving data and order in localStorage.
+Small vanillaJS single page-appgas, which can save todo items, you can change
+items order by grabbing it. Saving data and order in localStorage.
 
 ## How it was creating
 
