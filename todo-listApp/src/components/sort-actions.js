@@ -8,6 +8,8 @@ const refs = {
   toDosList: document.querySelector('.js-todo-list'),
 };
 
+// sorting logic, sorting actions trigerring after each action(creating, editing etc.)
+
 const sortActions = {
   searchByTitle(arr, searchQuerry) {
     return searchQuerry
@@ -39,11 +41,6 @@ const sortActions = {
     return sortedByPriority;
   },
 };
-// refs.toDosList.addEventListener('click', e => {
-//   if (e.target.dataset.action) {
-//     updatingActions[e.target.dataset.action](e.target.parentNode.dataset.id);
-//   }
-// });
 refs.toDosList.addEventListener(
   'click',
   e =>

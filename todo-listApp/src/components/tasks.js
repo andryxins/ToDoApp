@@ -1,3 +1,5 @@
+// array of tasks example
+
 export default [
   // {
   //   title: 'aaaaaaaaaaaa',

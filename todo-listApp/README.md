@@ -1,33 +1,23 @@
-# Webpack starter kit
+# MY First App (ToDo Application)
 
-[Живая страница](https://luxplanjay.github.io/webpack-starter-kit/) после деплоя
-через `npm run deploy`.
+---
 
-## Использование
+## What is it
 
-- Скачать репо как архив
-- Переименовать папку под свой проект
-- В консоли перейти в корень проекта
-- Выполнить команду `npm install`
-- Ждать пока установятся все зависимости
+Small single page app, which can save todo items, you can change items order by
+grabbing it. Saving data and order in localStorage.
 
-## Скрипты
+## How it was creating
 
-- `npm start` - запускает режим разработки с дев-сервером.
-- `npm run build` - запускает режим сборки в прод, создастся папка `build`.
-- `npm run deploy` - запускает сборку в прод, после чего деплоит проект на GitHub
-Pages в репозиторий из свойства `homepage` в `package.json`. Автоматически
-создает ветку `gh-pages` в репозитории. Значение `homepage` необходимо подменить вручную на свой репозиторий.
+Build prodaction with
+[WebPack](https://github.com/luxplanjay/webpack-starter-kit), using lib:
 
-## Папки и файлы
+- [@shopify/draggable](https://github.com/Shopify/draggable#readme)
+- [basiclightbox](https://basiclightbox.electerious.com/);
+- [handlebars](http://handlebarsjs.com/);
+- [toastify-js](https://github.com/apvarun/toastify-js#readme);
 
-- `src` - тут лежат исходники.
-- `src/index.html` - шаблон под html-файл, можно редактировать. В продакшене
-  сюда автоматически добаввятся теги `link` и `script`.
-- `src/index.js` - точка входа в приложение, сюда импортируем все остальное.
-- `build` - автоматически создастся в продакшене, тут будут готовые файлы.
+## About
 
-## Баги и улучшения
-
-Если нашли баг открывайте `issue`, обсудим, если пофиксили открывайте
-`pull request`.
+My first app, was making a lot of mistakes. Maybe sometime I'll refactor it, but
+for now let it be for memory.

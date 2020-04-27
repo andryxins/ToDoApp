@@ -5,6 +5,9 @@ const refs = {
   toDosList: document.querySelector('.js-todo-list'),
 };
 
+// redindering actions, where creating markUp
+// array reverse for order
+
 const renderingActions = {
   createListMarkUp(arrOfToDos) {
     return [...arrOfToDos]
